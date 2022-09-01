@@ -38,7 +38,10 @@ public class Pessoa {
 	 private String cidadeLogradouro;
 	 @Column(name = "uf")
 	 private String ufLogradouro;
-	 	 
+	 
+	 public Pessoa() {
+			super();
+		}
 	 
 	public Pessoa(String nome, String cpf, Calendar dataDeNascimento) {
 		super();
