@@ -1,25 +1,29 @@
 package br.edu.uerr.demo.controle;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
-import br.edu.uerr.demo.modelo.Pessoa;
 import br.edu.uerr.demo.servicos.PessoaServicos;
 
 @Controller
-@RequestMapping("/api")
 public class PessoaControle {
 
 	@Autowired
 	PessoaServicos pessoaServicos;
 	
+	/*
 	@RequestMapping(value="/pessoas", method=RequestMethod.GET)
 	public List<Pessoa> lista() {
-	    return pessoaServicos.getPessoa();	
+	    return pessoaRepositorio.findAll();	
+	}
+	*/
+	
+	@GetMapping("/pega")
+	public String pegaPessoa(Model model) {
+		model.addAttribute("listaPessoas",pessoaServicos.getPessoas());
+		return "pessoas";
 	}
 	
 }

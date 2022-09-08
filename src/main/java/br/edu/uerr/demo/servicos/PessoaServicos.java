@@ -20,7 +20,7 @@ public class PessoaServicos {
 	}
 
 	// READ
-	public List<Pessoa> getPessoa() {
+	public List<Pessoa> getPessoas() {
 	    return pessoaRepositorio.findAll();
 	}
 
